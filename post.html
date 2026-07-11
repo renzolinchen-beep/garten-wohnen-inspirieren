@@ -1,0 +1,30 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Beitrag</title><link rel="stylesheet" href="css/style.css"></head><body><main id="post"><h1 id="title">Beitrag</h1><img id="image" style="max-width:100%;border-radius:8px;display:none"><p id="meta"></p><div id="content"></div><div id="navlinks"></div><p><a id="share" href="#" target="_blank">Auf Pinterest teilen</a></p><p><a href="index.html">← Zurück</a></p><section><h2>Ähnliche Beiträge</h2><div id="related"></div></section>
+<section id="related-posts"><h2>Ähnliche Beiträge</h2><div class="related-grid"></div></section>
+<p><a id="share-pinterest" href="https://www.pinterest.com/pin/create/button/" target="_blank">Auf Pinterest teilen</a></p>
+</main><script>
+const id=new URLSearchParams(location.search).get('id');
+fetch('data/posts.json').then(r=>r.json()).then(posts=>{
+ const p=(posts||[]).find(x=>String(x.id)===String(id))||posts[0];
+ if(!p)return;
+ document.title=p.title||'Beitrag';
+ document.getElementById('title').textContent=p.title||'Beitrag';
+ const img=document.getElementById('image'); if(p.image){img.src=p.image; img.style.display='block';} const words=((p.content||p.excerpt||'').split(/\s+/).filter(Boolean).length); const mins=Math.max(1,Math.ceil(words/200)); document.getElementById('meta').textContent=`${p.date||''} • ca. ${mins} Min. Lesezeit`; document.getElementById('content').innerHTML=`<p><strong>${p.category||''}</strong></p><p>${p.excerpt||''}</p><p>${p.content||''}</p>`; const i=posts.indexOf(p); let h=''; if(posts[i-1]) h+=`<a href="post.html?id=${posts[i-1].id}">← Vorheriger</a> `; if(posts[i+1]) h+=`<a href="post.html?id=${posts[i+1].id}">Nächster →</a>`; document.getElementById('navlinks').innerHTML=h;
+});
+</script>
+<script>
+fetch('data/posts.json').then(r=>r.json()).then(posts=>{
+ const id=new URLSearchParams(location.search).get('id');
+ const current=(posts||[]).find(x=>String(x.id)===String(id))||posts[0];
+ if(!current) return;
+ const rel=posts.filter(x=>x.id!==current.id && x.category===current.category).slice(0,3);
+ const c=document.querySelector('.related-grid');
+ if(c){
+   c.innerHTML=rel.map(x=>`<article class="card"><h3>${x.title}</h3><p>${x.excerpt||''}</p><a href="post.html?id=${x.id}">Beitrag lesen</a></article>`).join('')||'<p>Keine ähnlichen Beiträge gefunden.</p>';
+ }
+ const share=document.getElementById('share-pinterest');
+ if(share){
+   share.href='https://www.pinterest.com/pin/create/button/?url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(current.title);
+ }
+});
+</script>
+</body></html>

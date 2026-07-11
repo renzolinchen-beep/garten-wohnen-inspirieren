@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Mediterrane Terrasse gestalten",
+    "category": "Wohnen",
+    "date": "2026-07-01",
+    "image": "https://picsum.photos/seed/terrasse/600/400",
+    "excerpt": "So entsteht mit wenigen Pflanzen und warmen Materialien eine mediterrane Atmosphäre."
+  },
+  {
+    "id": 2,
+    "title": "Hochbeet im Sommer richtig bewässern",
+    "category": "Garten",
+    "date": "2026-07-03",
+    "image": "https://picsum.photos/seed/hochbeet/600/400",
+    "excerpt": "Praktische Tipps für eine gleichmäßige Feuchtigkeit und gesunde Gemüsepflanzen."
+  },
+  {
+    "id": 3,
+    "title": "DIY: Pflanzregal aus Holz bauen",
+    "category": "DIY",
+    "date": "2026-07-05",
+    "image": "https://picsum.photos/seed/regal/600/400",
+    "excerpt": "Eine einfache Schritt-für-Schritt-Anleitung für ein dekoratives Pflanzregal."
+  },
+  {
+    "id": 4,
+    "title": "Schattenpflanzen für kleine Gärten",
+    "category": "Pflanzen",
+    "date": "2026-07-07",
+    "image": "https://picsum.photos/seed/schatten/600/400",
+    "excerpt": "Diese Pflanzen gedeihen auch an weniger sonnigen Standorten hervorragend."
+  }
+]

@@ -1,0 +1,124 @@
+:root{--accent:#2f7d32;--bg:#f6f6f2}body{font-family:Arial;margin:0;background:var(--bg)}.site-header,.hero{padding:1rem 2rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;padding:1rem}.card{background:#fff;padding:1rem;border-radius:10px}.hero{background:var(--accent);color:#fff}input{padding:.6rem;width:100%;max-width:420px}
+
+:root {
+  --bg: #f7f7f7;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #2f855a;
+  --primary-dark: #276749;
+  --border: #e5e7eb;
+}
+
+[data-theme="dark"] {
+  --bg: #111827;
+  --surface: #1f2937;
+  --text: #f9fafb;
+  --muted: #d1d5db;
+  --primary: #48bb78;
+  --primary-dark: #38a169;
+  --border: #374151;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle,
+.category-btn,
+.favorite-btn {
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+}
+
+.theme-toggle,
+.favorite-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.theme-toggle:hover,
+.favorite-btn:hover {
+  background: var(--primary-dark);
+}
+
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.category-btn {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.category-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.post-card {
+  overflow: hidden;
+}
+
+.post-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.post-content {
+  padding: 1rem;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.badge {
+  background: #e6fffa;
+  color: var(--primary-dark);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.post-actions {
+  margin-top: 1rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+}
+
+
+/* Sprint59 card polish */
+.post-card{transition:transform .2s ease,box-shadow .2s ease;border-radius:16px;overflow:hidden}
+.post-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.badge{padding:.2rem .6rem;border-radius:999px;font-size:.8rem}
+.post-actions{display:flex;gap:.75rem;align-items:center;margin-top:1rem;flex-wrap:wrap}
+.read-btn,.favorite-btn{padding:.55rem .9rem;border-radius:10px;text-decoration:none}
+
+.share-btn{border:1px solid var(--primary);background:#fff;color:var(--primary);padding:.4rem .7rem;border-radius:8px;cursor:pointer;margin:.4rem 0}
+.share-btn:hover{background:var(--primary);color:#fff}
